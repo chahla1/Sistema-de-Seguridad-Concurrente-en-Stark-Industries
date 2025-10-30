@@ -35,11 +35,15 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
-                        .anyRequest().authenticated() // cualquier URL requiere login
+                        .requestMatchers("/ws-alertas/**").permitAll()
+                        .anyRequest().authenticated()
                 )
-                .formLogin(Customizer.withDefaults()) // activa el login
-                .httpBasic(Customizer.withDefaults()); // permite autenticacion basica
+                .formLogin(Customizer.withDefaults())
+                .logout(Customizer.withDefaults())
+                .csrf(csrf -> csrf.disable());
+
         return http.build();
     }
+
 }
 
