@@ -12,7 +12,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         // Endpoint para que los clientes puedan conectarse
-        registry.addEndpoint("/ws-alertas").withSockJS();
+        registry.addEndpoint("/ws-alertas");
     }
 
     @Override
