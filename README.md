@@ -26,3 +26,8 @@ donde la concurrencia y la rapidez en la respuesta son críticas.
 1. Ejecutar el servidor Spring Boot (`mvn spring-boot:run`).
 2. Ejecutar el simulador (`SimuladorSensor`).
 3. Abrir `http://localhost:8080` y observar las alertas en tiempo real.
+
+
+
+
+https://github.com/chahla1/Sistema-de-Seguridad-Concurrente-en-Stark-Industries.git
