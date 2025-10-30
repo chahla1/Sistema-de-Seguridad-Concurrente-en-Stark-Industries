@@ -1,11 +1,10 @@
 package com.stark.security.securitysystem.sensores;
-import org.springframework.stereotype.Component;
 
-@Component
 public class SensorMovimiento extends Sensor {
 
-    public SensorMovimiento() {
-        super("S001", "Movimiento");
+    // Constructor que recibe el tipo
+    public SensorMovimiento(String tipo) {
+        super(tipo);
     }
 
     @Override

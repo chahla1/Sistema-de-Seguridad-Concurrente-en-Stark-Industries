@@ -1,11 +1,9 @@
 package com.stark.security.securitysystem.sensores;
-import org.springframework.stereotype.Component;
 
-@Component
 public class SensorAcceso extends Sensor {
 
-    public SensorAcceso() {
-        super("S003", "Acceso");
+    public SensorAcceso(String tipo) {
+        super(tipo);
     }
 
     @Override

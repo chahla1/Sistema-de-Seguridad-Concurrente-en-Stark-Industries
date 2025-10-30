@@ -1,12 +1,14 @@
 package com.stark.security.securitysystem;
-
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import com.stark.security.securitysystem.sensores.SensorMovimiento;
 import com.stark.security.securitysystem.sensores.SensorTemperatura;
 import com.stark.security.securitysystem.sensores.SensorAcceso;
+import com.stark.security.securitysystem.services.SensorService;
 
+@EnableAsync
 @SpringBootApplication
 public class SecuritySystemApplication {
 
@@ -18,9 +20,14 @@ public class SecuritySystemApplication {
         SensorTemperatura temp = context.getBean(SensorTemperatura.class);
         SensorAcceso acc = context.getBean(SensorAcceso.class);
 
+        SensorService service = context.getBean(SensorService.class);
 
-        mov.detectar();
-        temp.detectar();
-        acc.detectar();
+        // Llamamos a los sensores en paralelo
+        service.procesarSensor(mov);
+        service.procesarSensor(temp);
+        service.procesarSensor(acc);
+
+        System.out.println("Todos los sensores estan procesandose en paralelo...");
+
     }
 }
